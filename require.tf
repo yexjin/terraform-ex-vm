@@ -1,0 +1,1 @@
+# terraform 버전과 provider 등 실행에 관련된 정보 작성

@@ -1,0 +1,11 @@
+output "output_image_name" {
+  value = openstack_compute_instance_v2.instance.image_name
+}
+
+output "output_image_id" {
+  value = openstack_compute_instance_v2.instance.image_id
+}
+
+output "default_image" {
+  value = data.openstack_images_image_v2.default_image
+}

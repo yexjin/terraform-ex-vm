@@ -1,6 +1,5 @@
 # 생성할 클라우드 리소스 작성
 resource "openstack_networking_port_v2" "instance" {
-  count              = var.instance_count
   name               = var.instance_name
   network_id         = data.openstack_networking_network_v2.default_network.id
   admin_state_up     = true
@@ -8,14 +7,12 @@ resource "openstack_networking_port_v2" "instance" {
 }
 
 resource "openstack_networking_floatingip_v2" "instance_fip" {
-  count = var.instance_count
   pool  = data.openstack_networking_network_v2.floating_network.name
 }
 
 resource "openstack_networking_floatingip_associate_v2" "instance_fip_associate" {
-  count       = var.instance_count
-  floating_ip = openstack_networking_floatingip_v2.instance_fip[count.index].address
-  port_id     = openstack_networking_port_v2.instance[count.index].id
+  floating_ip = openstack_networking_floatingip_v2.instance_fip.address
+  port_id     = openstack_networking_port_v2.instance.id
 }
 
 ## Security Group ##

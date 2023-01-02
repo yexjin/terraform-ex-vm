@@ -30,3 +30,10 @@ resource "openstack_networking_secgroup_rule_v2" "instance_ingress_rules" {
   port_range_max    = 22
   security_group_id = openstack_networking_secgroup_v2.instance.id
 }
+
+## Block storage ##
+resource "openstack_blockstorage_volume_v3" "volume" {
+  name = "test-volume"
+  description = "first test volume"
+  size = 3
+}

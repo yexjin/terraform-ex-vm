@@ -23,3 +23,8 @@ variable "instance_flavor" {
   type    = string
   default = "a1-2-co"
 }
+
+variable "ssh-key" {
+  type = string
+  default = "my-keypair"
+}

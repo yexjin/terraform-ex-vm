@@ -6,3 +6,7 @@ output "output_image_id" {
   value = openstack_compute_instance_v2.instance.image_id
 }
 
+output "ssh_file" {
+  value = local_file.key.filename
+}
+

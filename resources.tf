@@ -41,6 +41,23 @@ resource "openstack_blockstorage_volume_v3" "volume" {
   size = 3
 }
 
+## Object storage ##
+resource "openstack_objectstorage_container_v1" "container-1" {
+  region = "kr-central-1"
+  name = "lena-bucket"
+
+  content_type = "application/json"
+}
+
+resource "openstack_objectstorage_object_v1" "file" {
+  region         = "kr-central-1"
+  container_name = openstack_objectstorage_container_v1.container-1.name
+  name           = "tf-state.json"
+
+  content_type = "application/json"
+  source       = "./terraform.tfstate"
+}
+
 
 ## Key pair ##
 resource openstack_compute_keypair_v2 "test-keypair" {

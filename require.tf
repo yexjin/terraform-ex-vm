@@ -7,7 +7,9 @@ terraform {
       version = ">= 1.40.0"
     }
   }
+
 }
 
 provider "openstack" {
+  cloud = "lena-3tier"
 }

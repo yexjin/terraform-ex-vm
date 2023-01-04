@@ -19,3 +19,7 @@ data "openstack_networking_subnet_v2" "default_subnet" {
 data "openstack_networking_network_v2" "floating_network" {
   external = true
 }
+
+data "openstack_identity_auth_scope_v3" "current" {
+  name = "current"
+}

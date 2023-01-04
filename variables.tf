@@ -6,7 +6,7 @@ variable "default_image" {
 
 variable "default_network_cidr" {
   type    = string
-  default = "172.16.0.0/20"
+  default = "172.16.131.0/24"
 }
 
 variable "instance_name" {

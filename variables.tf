@@ -1,7 +1,7 @@
 # 리소스를 생성하는데 사용할 변수 정 + 인스턴스를 생성할 서브넷 설정
 variable "default_image" {
   type    = string
-  default = "CentOS 7.9"
+  default = "Ubuntu 20.04"
 }
 
 variable "default_network_cidr" {

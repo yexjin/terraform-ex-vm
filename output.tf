@@ -10,3 +10,6 @@ output "ssh_file" {
   value = local_file.key.filename
 }
 
+output "current_workspace_name" {
+  value = terraform.workspace
+}

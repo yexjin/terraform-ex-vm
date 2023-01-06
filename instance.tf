@@ -13,10 +13,11 @@ resource "openstack_compute_instance_v2" "instance" {
   }
 
   block_device {
-    source_type = "blank"
+    uuid = openstack_blockstorage_volume_v3.volume.id
+    source_type = "volume"
     destination_type = "volume"
-    volume_size = openstack_blockstorage_volume_v3.volume.size
     boot_index = 1
+    volume_size = openstack_blockstorage_volume_v3.volume.size
     delete_on_termination = true
   }
 
